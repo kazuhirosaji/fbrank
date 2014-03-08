@@ -17,12 +17,17 @@ class FbRank
         @nations[code].name = nation["teamName"]
         @nations[code].zonal_rank = nation["zonalRank"].to_i
         @nations[code].point = nation["thisPoints"].to_i
+        @nations[code].maCode = nation["maCode"]
       end
     }
+
+    def country_list
+      ["ESP", "GER", "ARG", "POR", "COL"]
+    end
   end
   
   class Nations
-    attr_accessor :name, :rank, :zonal_rank, :point
+    attr_accessor :name, :rank, :zonal_rank, :point, :maCode
   end
 end
 

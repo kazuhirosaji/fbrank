@@ -35,5 +35,17 @@ describe FbRank do
       end
     end
 
+    it "Code一覧表示" do
+      begin
+        # -- given --
+
+        # -- when --
+        @fbrank.read "../short_nations.json"
+        
+        # -- then --
+        list = ["ESP", "GER", "ARG", "POR", "COL"]
+        @fbrank.country_list.should == list
+      end
+    end
   end
 end
