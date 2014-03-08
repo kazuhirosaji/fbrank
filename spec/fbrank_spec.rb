@@ -28,6 +28,10 @@ describe FbRank do
                   
         # -- then --
         @fbrank.nations.size.should > 0
+        @fbrank.nations[:GER].rank == 2
+        @fbrank.nations[:GER].name == "Germany"
+        @fbrank.nations[:GER].zonal_rank == 2
+        @fbrank.nations[:GER].point == 1314
       end
     end
 

@@ -4,20 +4,25 @@ class FbRank
   attr_accessor :nations
   def initialize
     p "init FbRank"
-    @nations = []
+    @nations = {}
   end
   
   def read file
     File.open(file, "r") {|io|
-      @nations = JSON.load(io)
+      JSON.load(io).each do |nation|
+        p nation
+        code = nation["maCode"].to_sym
+        @nations[code] = Nations.new
+        @nations[code].rank = nation["rank"].to_i
+        @nations[code].name = nation["teamName"]
+        @nations[code].zonal_rank = nation["zonalRank"].to_i
+        @nations[code].point = nation["thisPoints"].to_i
+      end
     }
   end
   
   class Nations
-    attr_accessor :name, :rank, :area
-    def initialize
-      @rank = 0
-    end
+    attr_accessor :name, :rank, :zonal_rank, :point
   end
 end
 
