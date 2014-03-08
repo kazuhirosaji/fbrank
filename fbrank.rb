@@ -10,7 +10,7 @@ class FbRank
   def read file
     File.open(file, "r") {|io|
       JSON.load(io).each do |nation|
-        p nation
+#        p nation
         code = nation["maCode"].to_sym
         @nations[code] = Nations.new
         @nations[code].rank = nation["rank"].to_i
@@ -22,7 +22,9 @@ class FbRank
     }
 
     def country_list
-      ["ESP", "GER", "ARG", "POR", "COL"]
+      list = []
+      @nations.each {|key, nation| list << nation.maCode }
+      list
     end
   end
   
