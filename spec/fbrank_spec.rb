@@ -35,7 +35,7 @@ describe FbRank do
       end
     end
 
-    it "Code一覧表示" do
+    it "国一覧表示" do
       begin
         # -- given --
 
@@ -45,6 +45,16 @@ describe FbRank do
         # -- then --
         list = ["ESP", "GER", "ARG", "POR", "COL"]
         @fbrank.country_list.should == list
+      end
+    end
+
+    it "list表示" do
+      begin
+        @fbrank.read "../short_nations.json"
+        esp = Hash[:macode, "ESP", :team_name, "Spain", :rank, 1, :zonal_rank, 1, :point , 1506]
+        por = Hash[:macode, "POR", :team_name, "Portugal", :rank, 4, :zonal_rank, 3, :point, 1219]
+        @fbrank.info(:ESP).should == esp
+        @fbrank.info(:POR).should == por
       end
     end
   end
