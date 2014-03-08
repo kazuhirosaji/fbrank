@@ -4,32 +4,32 @@ require "../fbrank"
 
 describe FbRank do
   context :データ読み込み do
-    cases = [
-      {
-        case_no: 1,
-        case_title: "読み込みデータ確認",
-      },
-    ]
 
-    cases.each do |c|
-      it "|case_no=#{c[:case_no]}|case_title=#{c[:case_title]}" do
-        begin
-          # -- given --
-          fbrank = FbRank.new
-
-          # -- when --
-          p fbrank.rank
-          fbrank.rank.should be_empty
-          fbrank.rank.size.should == 0
-          
-          fbrank.read "nations.json"
-          fbrank.rank.size.should > 0
-          
-          # -- then --
-        end
-      end
-
+    before do
+      @fbrank = FbRank.new
     end
-  end
 
+    it "FbRank初期化" do
+      begin
+        # -- when --
+                  
+        # -- then --
+        @fbrank.nations.should be_empty
+        @fbrank.nations.size.should == 0
+      end
+    end
+
+    it "JSON読み込み" do
+      begin
+        # -- given --
+
+        # -- when --
+        @fbrank.read "../short_nations.json"
+                  
+        # -- then --
+        @fbrank.nations.size.should > 0
+      end
+    end
+
+  end
 end
