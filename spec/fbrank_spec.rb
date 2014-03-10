@@ -57,6 +57,7 @@ describe FbRank do
         @fbrank.info(:ESP).should == esp
         @fbrank.info(:POR).should == por
         @fbrank.info("Germany").should == ger
+        @fbrank.info("Spain").should == esp
       end
     end
   end
