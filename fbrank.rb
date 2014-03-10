@@ -46,7 +46,6 @@ class FbRank
       info[:rank] = nation.rank
       info[:zonal_rank] = nation.zonal_rank
       info[:point] = nation.point
-
       info
     end
   end
