@@ -3,7 +3,7 @@ require "./spec_helper"
 require "../fbrank"
 
 describe FbRank do
-  context :データ読み込み do
+  context :"FIFAランキングデータ処理" do
 
     before do
       @fbrank = FbRank.new
