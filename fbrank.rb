@@ -20,35 +20,36 @@ class FbRank
         @nations[code].macode = nation["maCode"]
       end
     }
-
-    def country_list
-      clist = []
-      @nations.each {|key, nation| clist << nation.macode }
-      clist
-    end
-    
-    def info name
-      info = Hash.new
-      nation = nil
-
-      if name.is_a? Symbol
-        nation = @nations[name]
-      elsif name.is_a? String
-        @nations.each do |key, val|
-          nation = val if val.name  == name
-        end
-      end
-
-      return if nation == nil
-
-      info[:macode] = nation.macode
-      info[:team_name] = nation.name
-      info[:rank] = nation.rank
-      info[:zonal_rank] = nation.zonal_rank
-      info[:point] = nation.point
-      info
-    end
   end
+
+  def country_list
+    clist = []
+    @nations.each {|key, nation| clist << nation.macode }
+    clist
+  end
+    
+  def info name
+    info = Hash.new
+    nation = nil
+
+    if name.is_a? Symbol
+      nation = @nations[name]
+    elsif name.is_a? String
+      @nations.each do |key, val|
+        nation = val if val.name  == name
+      end
+    end
+
+    return if nation == nil
+
+    info[:macode] = nation.macode
+    info[:team_name] = nation.name
+    info[:rank] = nation.rank
+    info[:zonal_rank] = nation.zonal_rank
+    info[:point] = nation.point
+    info
+  end
+
   
   class Nations
     attr_accessor :name, :rank, :zonal_rank, :point, :macode
