@@ -66,7 +66,7 @@ describe FbRank do
         @fbrank.read "../short_nations.json"
         @fbrank.rank(2).should == "Germany"
         @fbrank.rank(3).should == "Argentina"
-       # @fbrank.rank(3, 5).should == ["Argentina", "Portugal", "Colombia"]
+        @fbrank.rank(3, 5).should == ["Argentina", "Portugal", "Colombia"]
       end
     end
   end

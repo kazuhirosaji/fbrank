@@ -50,6 +50,16 @@ class FbRank
     info
   end
 
+  def rank frm_num, to_num=0
+    names = []
+    @nations.each do |key, val|
+      if val.rank  == frm_num || (val.rank >= frm_num && val.rank <= to_num)
+        return val.name if to_num == 0
+        names << val.name
+      end
+    end
+    names
+  end
   
   class Nations
     attr_accessor :name, :rank, :zonal_rank, :point, :macode
