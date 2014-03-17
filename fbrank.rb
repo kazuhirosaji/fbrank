@@ -38,6 +38,9 @@ class FbRank
       @nations.each do |key, val|
         nation = val if val.name  == name
       end
+    elsif name.is_a? Integer
+      # if name is Integer rank(integer) return nation name.
+      return info(rank(name))
     end
 
     return if nation == nil

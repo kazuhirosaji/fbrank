@@ -7,6 +7,9 @@ describe FbRank do
 
     before do
       @fbrank = FbRank.new
+      @esp = Hash[:macode, "ESP", :team_name, "Spain", :rank, 1, :zonal_rank, 1, :point , 1506]
+      @por = Hash[:macode, "POR", :team_name, "Portugal", :rank, 4, :zonal_rank, 3, :point, 1219]
+      @ger = Hash[:macode, "GER", :team_name, "Germany", :rank, 2, :zonal_rank, 2, :point, 1314]
     end
 
     it "FbRank初期化" do
@@ -51,13 +54,10 @@ describe FbRank do
     it "list表示" do
       begin
         @fbrank.read "../short_nations.json"
-        esp = Hash[:macode, "ESP", :team_name, "Spain", :rank, 1, :zonal_rank, 1, :point , 1506]
-        por = Hash[:macode, "POR", :team_name, "Portugal", :rank, 4, :zonal_rank, 3, :point, 1219]
-        ger = Hash[:macode, "GER", :team_name, "Germany", :rank, 2, :zonal_rank, 2, :point, 1314]
-        @fbrank.info(:ESP).should == esp
-        @fbrank.info(:POR).should == por
-        @fbrank.info("Germany").should == ger
-        @fbrank.info("Spain").should == esp
+        @fbrank.info(:ESP).should == @esp
+        @fbrank.info(:POR).should == @por
+        @fbrank.info("Germany").should == @ger
+        @fbrank.info("Spain").should == @esp
       end
     end
 
@@ -67,6 +67,14 @@ describe FbRank do
         @fbrank.rank(2).should == "Germany"
         @fbrank.rank(3).should == "Argentina"
         @fbrank.rank(3, 5).should == ["Argentina", "Portugal", "Colombia"]
+      end
+    end
+    
+    it "順位からlistを表示" do
+      begin
+        @fbrank.read "../short_nations.json"
+        @fbrank.info(1).should == @esp
+        @fbrank.info(4).should == @por
       end
     end
   end
