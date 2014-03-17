@@ -22,7 +22,7 @@ class FbRank
     }
   end
 
-  def country_list
+  def country_code_list
     clist = []
     @nations.each {|key, nation| clist << nation.macode }
     clist

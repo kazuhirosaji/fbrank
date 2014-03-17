@@ -47,7 +47,7 @@ describe FbRank do
         
         # -- then --
         list = ["ESP", "GER", "ARG", "POR", "COL"]
-        @fbrank.country_list.should == list
+        @fbrank.country_code_list.should == list
       end
     end
 
