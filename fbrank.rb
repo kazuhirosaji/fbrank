@@ -68,6 +68,11 @@ class FbRank
     names
   end
   
+  def find_name str
+    names = []
+    names << "Germany"
+  end
+  
   
   class Nations
     attr_accessor :name, :rank, :zonal_rank, :point, :macode

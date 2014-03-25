@@ -77,5 +77,12 @@ describe FbRank do
         @fbrank.info(4).should == @por
       end
     end
+    
+    it "頭文字で検索" do
+      begin
+        @fbrank.read "../short_nations.json"
+        @fbrank.find_name("G").should == ["Germany"]
+      end
+    end
   end
 end
