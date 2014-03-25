@@ -82,6 +82,8 @@ describe FbRank do
       begin
         @fbrank.read "../short_nations.json"
         @fbrank.find_name("G").should == ["Germany"]
+        @fbrank.find_name("S").should == ["Spain"]
+        @fbrank.find_name("co").should == ["Colombia"]
       end
     end
   end

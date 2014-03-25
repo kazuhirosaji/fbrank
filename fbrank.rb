@@ -70,7 +70,10 @@ class FbRank
   
   def find_name str
     names = []
-    names << "Germany"
+    @nations.each do |key, val|
+      names << val.name if val.name.match(/\A#{str}/i)
+    end
+    names
   end
   
   
