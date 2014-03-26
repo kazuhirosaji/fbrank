@@ -71,6 +71,7 @@ class FbRank
   def find_name str
     names = []
     @nations.each do |key, val|
+      # ˆø”str‚©‚çn‚Ü‚é‘–¼‚ğ”z—ñ‚É“ü‚ê‚é
       names << val.name if val.name.match(/\A#{str}/i)
     end
     return names.sort if names.size > 1
