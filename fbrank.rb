@@ -73,6 +73,7 @@ class FbRank
     @nations.each do |key, val|
       names << val.name if val.name.match(/\A#{str}/i)
     end
+	return names.sort if names.size > 1
     names
   end
   
