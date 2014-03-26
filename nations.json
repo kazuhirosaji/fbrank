@@ -1,4 +1,4 @@
-{"ranks" : [
+[
  {"maCode":"ESP","teamName":"Spain","rank":"1","zonalRank":"1","thisPoints":"1506"},
  {"maCode":"GER","teamName":"Germany","rank":"2","zonalRank":"2","thisPoints":"1314"},
  {"maCode":"ARG","teamName":"Argentina","rank":"3","zonalRank":"1","thisPoints":"1255"},
@@ -208,5 +208,4 @@
  {"maCode":"BHU","teamName":"Bhutan","rank":"207","zonalRank":"46","thisPoints":"0"},
  {"maCode":"SMR","teamName":"San Marino","rank":"207","zonalRank":"53","thisPoints":"0"},
  {"maCode":"TCA","teamName":"Turks and Caicos Islands","rank":"207","zonalRank":"35","thisPoints":"0"}
-
-]}
+]
